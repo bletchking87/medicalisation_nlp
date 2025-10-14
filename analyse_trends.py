@@ -6,7 +6,7 @@ import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
-# Helper function to process text again (can import from preprocess.py later)
+# Helper function to process text again
 def preprocess(text):
     doc = nlp(text.lower())
     return [t.lemma_ for t in doc if t.is_alpha and not t.is_stop]
@@ -18,7 +18,7 @@ def load_and_process(path_pattern):
             tokens += preprocess(f.read())
     return Counter(tokens)
 
-# Define your lexicons
+# Lexicons
 medical_terms = ["disorder","diagnosis","symptom","treatment","therapy","medication","clinical","patient"]
 human_terms   = ["sadness","grief","stress","loneliness","coping","support","friend","community","love",""]
 
