@@ -6,7 +6,7 @@ import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
-# Helper function to process text again
+# function to process text again
 def preprocess(text):
     doc = nlp(text.lower())
     return [t.lemma_ for t in doc if t.is_alpha and not t.is_stop]
