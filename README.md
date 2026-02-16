@@ -1,6 +1,14 @@
-# medicalisation_nlp
-Thursday 09/10/25
-An NLP project I decided to create to investigate trends in medicalisation of human suffering over the past decades in the language of the media.
+# Mental Health Language Analysis
+Analysing how mental health coverage in The Guardian evolved from clinical to humanized language (1998-2025).
 
-06/11/25 
-I have realised some refinement can be done to give better results.
+## What it does
+   - Scrapes articles via Guardian API
+   - Analyses language using spaCy NLP
+   - Categorises medical vs. human-centered terminology
+   - Visualises trends over time
+   
+## Key findings
+   - Over time, I observed that the relative frequency of human/emotional language has decreased since 2000, although there was a new peak at 2022. 
+   - I had originally aimed to cover more years but there is a lack of data from the years before the internet 'boom'. 
+## Tech stack
+   Python, spaCy, matplotlib, Guardian API
