@@ -1,0 +1,11 @@
+outputs/
+old_scripts/
+data/
+data_by_year/
+venv/
+
+.DS_Store
+*.png
+__pycache__/
+
+.env
