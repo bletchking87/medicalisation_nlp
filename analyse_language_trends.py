@@ -18,7 +18,7 @@ def preprocess(text):
     return [t.lemma_ for t in doc if t.is_alpha and not t.is_stop]
 
 def load_and_process(path_pattern):
-    """Load all articles matching pattern and return token counts."""
+    #Load all articles matching pattern and return token counts.
     tokens = []
     for fname in glob.glob(path_pattern):
         with open(fname, encoding="utf-8") as f:
@@ -27,7 +27,7 @@ def load_and_process(path_pattern):
 
 # ===== LEXICONS =====
 
-# Medicalized/clinical language
+# Medicalised/clinical language
 medical_terms = [
     "disorder",
     "diagnosis", 
@@ -74,7 +74,6 @@ human_terms = [
 ]
 
 # ===== ANALYSIS BY YEAR =====
-
 # Define year range
 years = list(range(1998, 2026))
 med_freqs, hum_freqs = [], []
@@ -101,14 +100,14 @@ for year in years:
     
     print(f"  {year}: {total:,} tokens | Med: {med_count} | Human: {hum_count}")
 
-# ===== CREATE VISUALIZATION =====
+# ===== CREATE VISUALISATION =====
 
 plt.figure(figsize=(12, 6))
-plt.plot(years, med_freqs, label="Medicalized Language", linewidth=2, marker='o', markersize=3)
+plt.plot(years, med_freqs, label="Medicalised Language", linewidth=2, marker='o', markersize=3)
 plt.plot(years, hum_freqs, label="Human/Emotional Language", linewidth=2, marker='o', markersize=3)
 plt.xlabel("Year", fontsize=12)
 plt.ylabel("Relative Frequency", fontsize=12)
-plt.title("Medicalized vs. Human Language in Mental Health Media (1998-2025)", fontsize=14, fontweight='bold')
+plt.title("Medicalised vs. Human Language in Mental Health Media (1998-2025)", fontsize=14, fontweight='bold')
 plt.legend(fontsize=11)
 plt.grid(alpha=0.3)
 plt.tight_layout()
@@ -120,7 +119,7 @@ plt.show()
 
 df = pd.DataFrame({
     'year': years,
-    'medicalized_freq': med_freqs,
+    'medicalised_freq': med_freqs,
     'human_freq': hum_freqs
 })
 df.to_csv("language_frequencies_by_year.csv", index=False)

@@ -18,7 +18,7 @@ def preprocess(text):
     return [t.lemma_ for t in doc if t.is_alpha and not t.is_stop]
 
 def analyze_year(year):
-    """Get stats for a specific year across all search terms."""
+    #Get stats for a year across all search terms. 
     pattern = f"data_by_year/*/{year}/*.txt"
     files = glob.glob(pattern)
     
@@ -37,7 +37,7 @@ def analyze_year(year):
         'avg_tokens_per_article': total_tokens / article_count if article_count > 0 else 0
     }
 
-# ===== ANALYZE ALL YEARS =====
+# ===== ANALYSE ALL YEARS =====
 
 print("Analyzing corpus quality by year...\n")
 
@@ -76,11 +76,11 @@ if len(insufficient) > 0:
     for _, row in insufficient.iterrows():
         print(f"   {int(row['year'])}: {int(row['article_count'])} articles, {int(row['total_tokens']):,} tokens")
     
-    print(f"\n💡 Recommendation: Consider excluding these years from analysis or starting from {insufficient['year'].max() + 1}")
+    print(f"\n Consider excluding these years from analysis or starting from {insufficient['year'].max() + 1}")
 else:
-    print("✅ All years have sufficient data!")
+    print("All years have sufficient data for analysis.")
 
-# ===== VISUALIZATIONS =====
+# ===== VISUALISATIONS =====
 
 fig, axes = plt.subplots(2, 1, figsize=(14, 10))
 
